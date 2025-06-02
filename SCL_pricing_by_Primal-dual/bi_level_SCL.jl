@@ -1570,6 +1570,13 @@ plot!(λ_F[2,:])
 plot!(λ_F[3,:])
 plot!(λ_F[4,:])
 
+matwrite("power_balance.mat", Dict("power_balance" => λᴱ))
+matwrite("dual_val_SCL_con_11.mat", Dict("dual_val_SCL_con_11" => λ_F[1,:]))
+matwrite("dual_val_SCL_con_26.mat", Dict("dual_val_SCL_con_26" => λ_F[2,:]))
+matwrite("dual_val_SCL_con_29.mat", Dict("dual_val_SCL_con_29" => λ_F[3,:]))
+matwrite("dual_val_SCL_con_30.mat", Dict("dual_val_SCL_con_30" => λ_F[4,:]))
+
+
 I_min=zeros(1,30)
 I_scc=zeros(30,T)
 
