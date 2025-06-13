@@ -9,6 +9,7 @@ using JuMP,Gurobi, CSV,DataFrames,LinearAlgebra, XLSX, IterTools, DelimitedFiles
 include("dataset_gene.jl")
 include("offline_trainning.jl")
 include("admittance_matrix_calculation.jl") 
+include("cal_SCL_contribution.jl")
 # SGs, buses:2,3,4,5,27,30    IBRs, buses:1,23,26
 
 
