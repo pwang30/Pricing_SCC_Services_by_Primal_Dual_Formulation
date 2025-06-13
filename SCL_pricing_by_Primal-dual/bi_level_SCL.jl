@@ -1540,6 +1540,41 @@ yˢᴳ²⁷_2=JuMP.value.(yˢᴳ²⁷_2)
 yˢᴳ³⁰_1=JuMP.value.(yˢᴳ³⁰_1)
 yˢᴳ³⁰_2=JuMP.value.(yˢᴳ³⁰_2)
 
+UC_SGs=zeros(12,24)   # UC of SGs
+for t in 1:T
+    UC_SGs[1,t]=yˢᴳ²_1[t]
+    UC_SGs[2,t]=yˢᴳ²_2[t]
+    UC_SGs[3,t]=yˢᴳ³_1[t] 
+    UC_SGs[4,t]=yˢᴳ³_2[t]
+    UC_SGs[5,t]=yˢᴳ⁴_1[t]
+    UC_SGs[6,t]=yˢᴳ⁴_2[t]
+    UC_SGs[7,t]=yˢᴳ⁵_1[t]
+    UC_SGs[8,t]=yˢᴳ⁵_2[t]
+    UC_SGs[9,t]=yˢᴳ²⁷_1[t]
+    UC_SGs[10,t]=yˢᴳ²⁷_2[t]
+    UC_SGs[11,t]=yˢᴳ³⁰_1[t]
+    UC_SGs[12,t]=yˢᴳ³⁰_2[t]
+end
+
+λ_SCL=zeros(4,T)  # dual variables for SCL constraints
+for t in 1:T
+    λ_SCL[1,t]=JuMP.value(λ_F[1,t])  # bus 11
+    λ_SCL[2,t]=JuMP.value(λ_F[2,t])  # bus 26
+    λ_SCL[3,t]=JuMP.value(λ_F[3,t])  # bus 29
+    λ_SCL[4,t]=JuMP.value(λ_F[4,t])  # bus 30
+end
+
+λ_SCL_ᴳ²_1, λ_SCL_ᴳ²_2, λ_SCL_ᴳ³_1, λ_SCL_ᴳ³_2, λ_SCL_ᴳ⁴_1, λ_SCL_ᴳ⁴_2, 
+    λ_SCL_ᴳ⁵_1, λ_SCL_ᴳ⁵_2, λ_SCL_ᴳ²⁷_1, λ_SCL_ᴳ²⁷_2, λ_SCL_ᴳ³⁰_1, λ_SCL_ᴳ³⁰_2 = cal_SCL_contribution(UC_SGs, λ_SCL)
+
+
+plot(λ_SCL_ᴳ²_1[4,:])
+plot!(λ_SCL_ᴳ³_1[4,:])
+plot!(λ_SCL_ᴳ⁴_1[4,:])
+plot!(λ_SCL_ᴳ⁵_1[4,:])
+plot!(λ_SCL_ᴳ²⁷_1[4,:])
+plot!( λ_SCL_ᴳ³⁰_1[4,:])
+
 Cᵁ³_1=JuMP.value.(Cᵁ³_1)
 Cᴰ³_1=JuMP.value.(Cᴰ³_1)
 Cᵁ⁴_1=JuMP.value.(Cᵁ⁴_1)
