@@ -404,6 +404,14 @@ end
     λ_SCL_ᴳ⁵_1, λ_SCL_ᴳ⁵_2, λ_SCL_ᴳ²⁷_1, λ_SCL_ᴳ²⁷_2, λ_SCL_ᴳ³⁰_1, λ_SCL_ᴳ³⁰_2 = cal_SCL_contribution(UC_SGs, λ_SCL)
 
 
+plot(λ_SCL_ᴳ²_1[1,:], label="SCL contribution of SG 2-1", xlabel="Time (h)", ylabel="SCL contribution", title="SCL Contribution of SGs")
+plot!(λ_SCL_ᴳ³_1[1,:], label="SCL contribution of SG 3-1")
+plot!(λ_SCL_ᴳ⁴_1[1,:], label="SCL contribution of SG 4-1")
+plot!(λ_SCL_ᴳ⁵_1[1,:], label="SCL contribution of SG 5-1")
+plot!(λ_SCL_ᴳ²⁷_1[1,:], label="SCL contribution of SG 27-1")
+plot!( λ_SCL_ᴳ³⁰_1[1,:], label="SCL contribution of SG 30-1") 
+
+
 plot(λ_SCL_ᴳ²_1[4,:])
 plot!(λ_SCL_ᴳ³_1[4,:])
 plot!(λ_SCL_ᴳ⁴_1[4,:])
