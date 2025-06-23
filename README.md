@@ -26,7 +26,7 @@ We try to guide you to understand our logistics of coding, once you fully unders
   3. "_offline_trainning.jl_" is the trainning process, with inputting parameters from above subfunctions.
 
 - For the code of primal-dual modelling, please refer to the files named "_P_D_pricing.jl_".
-
+- For the code of dispatchable pricing, please refer to the files named "_dispatchable_pricing.jl_".
 ----
 
 If you find something helpful or use this code for your own work, please cite this paper:
