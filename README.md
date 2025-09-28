@@ -1,4 +1,4 @@
-# How to price SCC by primal-dual formulation
+# How to price SCC via primal-dual formulation
 
 **PLEASE NOTE, the main models and methodologies are in the listed papers here. Fully understanding these works is the foundation of our work.**
 - Short-Circuit Current (SCC) models refer to:
