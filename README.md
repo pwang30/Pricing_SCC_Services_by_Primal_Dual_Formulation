@@ -6,7 +6,7 @@
   2. Chu, Zhongda, Jingyi Wu, and Fei Teng. ["Pricing of short circuit current in high IBR-penetrated system." Electric Power Systems Research 235 (2024): 110690.](https://www.sciencedirect.com/science/article/pii/S0378779624005765)
 - Primal-Dual formulation for addressing UC issues refer to:
   1. Ye, Yujian, et al. ["Incorporating non-convex operating characteristics into bi-level optimization electricity market models." IEEE Transactions on Power Systems 35.1 (2019): 163-176.](https://ieeexplore.ieee.org/abstract/document/8746573)
-- Data used in this work and relevant work/data please refer to our another work:
+- Data used in this work and relevant work/data please refer to our previous work:
   1. **Wang, Peng and Luis Badesa. " ." arXiv preprint arXiv:2501.07715 (2025).**
 
 
