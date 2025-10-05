@@ -7,7 +7,7 @@
 - Primal-Dual formulation for addressing UC issues refer to:
   1. Ye, Yujian, et al. ["Incorporating non-convex operating characteristics into bi-level optimization electricity market models." IEEE Transactions on Power Systems 35.1 (2019): 163-176.](https://ieeexplore.ieee.org/abstract/document/8746573)
 - Data used in this work and relevant work/data please refer to our previous work:
-  1. **Wang, Peng and Luis Badesa. " ." arXiv preprint arXiv:2501.07715 (2025).**
+  1. Wang, Peng, and Luis Badesa. ["Imperfect Competition in Markets for Short-Circuit Current Services." arXiv preprint arXiv:2508.09425 (2025)](https://arxiv.org/pdf/2508.09425).
 
 
 **GUIDANCE abot how to use the code of our work**
