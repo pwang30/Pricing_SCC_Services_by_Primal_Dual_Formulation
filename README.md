@@ -33,15 +33,16 @@ We try to guide you to understand our logistics of coding, once you fully unders
 
 If you find something helpful or use this code for your own work, please cite this paper:
 <ol>
-      Wang, Peng and Luis Badesa. " ." arXiv preprint arXiv:2501.07715 (2025).
+      Wang, Peng and Luis Badesa. "Pricing Short-Circuit Current via a Primal-Dual Formulation for Preserving Integrality Constraints." arXiv preprint arXiv:2510.05293 (2025).
 </ol>
       <br>
       
 <ol> 
-@misc{wang2025analyzingroledsoelectricity, <br>
-      title={Analyzing the Role of the DSO in Electricity Trading of VPPs via a Stackelberg Game Model}, <br>
-      author={Peng Wang and Xi Zhang and Luis Badesa},<br>
+  @misc{wang2025pricingshortcircuitcurrentprimaldual,<br>
+      title={Pricing Short-Circuit Current via a Primal-Dual Formulation for Preserving Integrality Constraints}, <br>
+      author={Peng Wang and Luis Badesa},<br>
       year={2025},<br>
-      eprint={2501.07715},<br>
+      eprint={2510.05293},<br>
       archivePrefix={arXiv},<br>
       primaryClass={eess.SY},<br>
+      url={https://arxiv.org/abs/2510.05293}, <br>
