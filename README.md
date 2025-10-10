@@ -38,11 +38,9 @@ If you find something helpful or use this code for your own work, please cite th
       <br>
       
 <ol> 
-  @misc{wang2025pricingshortcircuitcurrentprimaldual,<br>
-      title={Pricing Short-Circuit Current via a Primal-Dual Formulation for Preserving Integrality Constraints}, <br>
-      author={Peng Wang and Luis Badesa},<br>
-      year={2025},<br>
-      eprint={2510.05293},<br>
-      archivePrefix={arXiv},<br>
-      primaryClass={eess.SY},<br>
-      url={https://arxiv.org/abs/2510.05293}, <br>
+@article{wang2025pricing, <br>
+  title={Pricing Short-Circuit Current via a Primal-Dual Formulation for Preserving Integrality Constraints}, <br>
+  author={Wang, Peng and Badesa, Luis}, <br>
+  journal={arXiv preprint arXiv:2510.05293}, <br>
+  year={2025} <br>
+}
