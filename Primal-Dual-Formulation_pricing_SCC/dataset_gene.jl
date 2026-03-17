@@ -3,14 +3,14 @@ function dataset_gene(I_IBG,β,v)
 #-----------------------------------Calculation of SCC constraints----------------------------------
     numnodes=30                         # number of nodes
     num_IBG=3                           # number of nodes where IBGs are located
-    #            Bus Number	     x1	      x2
+    #            Bus Number	     x1	     
         SGpara=[
-                   2	       0.0846	0.0812	
-                   3	       0.0799	0.0774	
-                   4	       0.0758	0.0735	
-                   5	       0.0731	0.0713	
-                   27	       0.0519	0.0457	
-                   30	       0.0523	0.0469 ]  # buses where SGs are located
+                   2	       0.0846		
+                   3	       0.0799		
+                   4	       0.0758		
+                   5	       0.0731		
+                   27	       0.0519		
+                   30	       0.0523 ]  # buses where SGs are located
 
     Y_SGs = zeros(size(SGpara,1), size(SGpara,2)-1)    # define ADMITTANCE MATRIX of the SGs, buses:2,3,4,5,27,30
     I_SGs = zeros(size(SGpara,1), size(SGpara,2)-1)    # define I_SGs of the SGs, buses:2,3,4,5,27,30
@@ -19,7 +19,7 @@ function dataset_gene(I_IBG,β,v)
 
     for k in 1:size(SGpara,1)                      # calculate the ADMITTANCE MATRIX of the SGs
         for j in 2:size(SGpara,2)
-            Y_SGs[k, j-1] = 1/SGpara[k, j]/10        
+            Y_SGs[k, j-1] = 1/SGpara[k, j]         # /10        
         end           
     end 
     
@@ -35,7 +35,7 @@ function dataset_gene(I_IBG,β,v)
     I_SCC_all_buses_scenarios=zeros(Ω,numnodes)             # SCC for all buses in all Ω scenarios
     ηm=zeros(Ω,binomial(length(SGpara[:,2:end]),2))         # product of each pair of SGs
     
-    combinations = collect(product(0:1, repeat([0:1], length(SGpara[:,2:end])+num_IBG-1)...))    # generate all combinations of 21 binary variables: 18 SGs and 3 IBGs
+    combinations = collect(product(0:1, repeat([0:1], length(SGpara[:,2:end])+num_IBG-1)...))    # generate all combinations of 9 binary variables: 6 SGs and 3 IBGs
     matrix = hcat([collect(combo) for combo in combinations]...)  # convert the combination to a matrix
     matrix = transpose(matrix)                                    # transpose the matrix
     matrix = matrix[2:end, :]                                     # remove the first row of the matrix, as the first row is not realistic: all SGs and IBGs are off
@@ -64,13 +64,9 @@ function dataset_gene(I_IBG,β,v)
             status_IBG = matrix_ω[k, length(SGpara[:,2:end])+1:length(SGpara[:,2:end]) + num_IBG]   # status of IBG
             Y_SGs_with_status .= 0                                                                  # reset Y_SGs_with_status matrix
         
-            index = 1
+
             for i in 1:length(SGpara[:,2:end])
-                Y_SGs_with_status[Int(SGpara[Int(ceil(i/2)), 1]), Int(SGpara[Int(ceil(i/2)), 1])] = Y_SGs_with_status[Int(SGpara[Int(ceil(i/2)), 1]), Int(SGpara[Int(ceil(i/2)), 1])]+Y_SGs[Int(ceil(i/2)),index] * status_SGs[i]  # status of SGs
-                    index = index+1
-                    if index > size(Y_SGs, 2)
-                        index = 1
-                    end
+                Y_SGs_with_status[Int(SGpara[Int(ceil(i/2)), 1]), Int(SGpara[Int(ceil(i/2)), 1])] = Y_SGs_with_status[Int(SGpara[Int(ceil(i/2)), 1]), Int(SGpara[Int(ceil(i/2)), 1])] * status_SGs[i]  # status of SGs
             end
         
             Y_total .= Yₗᵢₙₑ + Y_SGs_with_status      # calculate the total ADMITTANCE MATRIX
