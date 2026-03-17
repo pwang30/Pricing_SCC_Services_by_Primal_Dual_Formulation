@@ -2,10 +2,10 @@
 # Supervisor: Luis Badesa
 
 # Pricing SCL by primal-dual formulation
-# 29.May.2025
+# 17.March.2026
 
 import Pkg
-using JuMP,Gurobi, CSV,DataFrames,LinearAlgebra, XLSX, IterTools, DelimitedFiles,Plots,MAT, CPLEX, Ipopt
+using JuMP,Gurobi, CSV,DataFrames,LinearAlgebra, XLSX, IterTools, DelimitedFiles,Plots,MAT
 include("dataset_gene.jl")
 include("offline_trainning.jl")
 include("admittance_matrix_calculation.jl") 
@@ -23,6 +23,8 @@ v=0.1        # gap for classification
 
 I_SCC_all_buses_scenarios, matrix_ω =dataset_gene(I_IBG, β,v_n)                                                            # data set generation                      
 K_g, K_c, K_m, N_type_1, N_type_2, err_type_1, err_type_2= offline_trainning(I_SCC_all_buses_scenarios, matrix_ω, Iₗᵢₘ, v)  # offline_trainning
+
+
 
 
 
