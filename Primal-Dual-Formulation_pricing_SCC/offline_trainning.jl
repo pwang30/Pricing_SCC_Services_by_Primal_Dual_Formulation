@@ -3,7 +3,7 @@ function offline_trainning(I_SCC_all_buses_scenarios, matrix_ω, Iₗᵢₘ, v)
 #-----------------------------------Dataset Classification
     K_g=zeros(12,30)   # define the linearized coffecoents for SGs
     K_c=zeros(3,30)    # define the linearized coffecoents for IBGs
-    K_m=zeros(66,30)  # define the linearized coffecoents for pairs of SGs
+    K_m=zeros(66,30)  # define the linearized coffecoents for pairs of SGs    C(12,2) = 66
 
     N_Ω1_tp1=0  # define the number of type-I & II errors 
     N_Ω2_tp1=0
@@ -18,7 +18,6 @@ function offline_trainning(I_SCC_all_buses_scenarios, matrix_ω, Iₗᵢₘ, v)
     err_Ω1_tp2=0
     err_Ω2_tp2=0
     err_Ω3_tp2=0
-    
 
     for k in 1:size(I_SCC_all_buses_scenarios,2)
     
@@ -83,6 +82,7 @@ function offline_trainning(I_SCC_all_buses_scenarios, matrix_ω, Iₗᵢₘ, v)
 
 #-----------------------------------Solve and Output Results
         set_optimizer(model_ot , Gurobi.Optimizer)
+        @time optimize!(model_ot)
         optimize!(model_ot)
     
 
