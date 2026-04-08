@@ -25,7 +25,7 @@ We try to guide you to understand our logistics of coding, once you fully unders
 
   3. "_offline_trainning.jl_" is the trainning process, with inputting parameters from above subfunctions.
 
-- For the code of primal-dual modelling, please refer to the file named "_P_D_pricing.jl_".
+- For the code of primal-dual modelling, please refer to the file named "_Primal-Dual-Formulation_pricing_SCC.jl_".
 - For the code of dispatchable pricing, please refer to the file named "_dispatchable_pricing.jl_".
 - The file named "_SCC_contribution.jl_" is to compute the SCC revenue by units' weighted contributions, which serve for the P-D method and dispatchable method.
 - For the code of restricted pricing, please refer to the files named "_restricted_pricing_optimal.jl_" and "_restricted_pricing_preset.jl_". The former one is the first stage of this method, created to find the optimal UC decisions, while the latter one is for the second stage, i.e., pricing.
