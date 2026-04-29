@@ -264,11 +264,33 @@ obj=cost_onoff_Primal +cost_nl_Primal +cost_gene_Primal
 @objective(model, Min,  obj)  # single-level objective function
 #-------Solve and Output Results
 set_optimizer(model,  Gurobi.Optimizer)
-set_optimizer_attribute(model, "QCPDual",  1)
+#set_optimizer_attribute(model, "QCPDual",  1)
 optimize!(model)
 
 
+dual_model=dualize(model)
+set_optimizer(dual_model,  Gurobi.Optimizer)
+#set_optimizer_attribute(dual_model, "QCPDual",  1)
+optimize!(dual_model)
 
+# 将完整模型信息写入文件
+open("dual_model_info.txt", "w") do io
+    # 保存目标函数
+    println(io, "=== 目标函数 ===")
+    println(io, objective_sense(dual_model))
+    println(io, objective_function(dual_model))
+    
+    # 保存所有约束
+    println(io, "\n=== 所有约束条件 ===")
+    for (F, S) in list_of_constraint_types(dual_model)
+        println(io, "\n--- 约束类型: $F in $S ---")
+        for con in all_constraints(dual_model, F, S)
+            println(io, con)
+        end
+    end
+end
+
+println("已保存到 dual_model_info.txt")
 
 
 #-------------------------------------------------------
@@ -517,7 +539,7 @@ set_optimizer(model, Gurobi.Optimizer)
 optimize!(model)
 
 
-
+println(model)
 
 
 
